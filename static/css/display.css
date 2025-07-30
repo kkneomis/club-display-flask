@@ -249,28 +249,13 @@
     z-index: 101;
 }
 
-.qr-code-placeholder {
+.qr-code-image {
     width: 80px;
     height: 80px;
-    background: white;
     border: 2px solid #333;
     border-radius: 8px;
-    position: relative;
-    overflow: hidden;
-}
-
-.qr-pattern {
-    width: 100%;
-    height: 100%;
-    background-image: 
-        /* Corner squares */
-        linear-gradient(45deg, #000 25%, transparent 25%),
-        linear-gradient(-45deg, #000 25%, transparent 25%),
-        linear-gradient(45deg, transparent 75%, #000 75%),
-        linear-gradient(-45deg, transparent 75%, #000 75%);
-    background-size: 8px 8px;
-    background-position: 0 0, 0 0, 0 0, 0 0;
-    opacity: 0.8;
+    background: white;
+    padding: 2px;
 }
 
 .qr-text {
