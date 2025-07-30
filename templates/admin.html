@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}Admin - Wedding Display{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="admin-container">
+    <div class="admin-header">
+        <h1 class="admin-title">Wedding Display Admin</h1>
+        <a href="/display" class="nav-link">View Display</a>
+    </div>
+
+    <div class="stats-section">
+        <div class="stat-card">
+            <h3>Total Submitted</h3>
+            <div class="stat-number" id="total-submitted">0</div>
+        </div>
+        <div class="stat-card">
+            <h3>Messages Displayed</h3>
+            <div class="stat-number" id="messages-displayed">0</div>
+        </div>
+        <div class="stat-card">
+            <h3>In Queue</h3>
+            <div class="stat-number" id="in-queue">0</div>
+        </div>
+    </div>
+
+    <div class="queue-section">
+        <div class="queue-header">
+            <h2>Message Queue (<span id="queue-count">0</span>)</h2>
+            <div class="queue-actions">
+                <button class="celebration-btn" id="trigger-celebration">
+                    🎆 Trigger Celebration
+                </button>
+                <button class="clear-btn" id="clear-all">
+                    Clear All Messages
+                </button>
+            </div>
+        </div>
+
+        <div id="empty-queue" class="empty-queue">
+            <p>No messages in queue</p>
+            <p>The display is showing the default message</p>
+        </div>
+
+        <div id="message-list" class="message-list"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/admin.js') }}"></script>
+{% endblock %}

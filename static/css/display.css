@@ -1,0 +1,409 @@
+/* Display page styles */
+.sign-container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(120, 219, 226, 0.1) 0%, transparent 50%),
+        linear-gradient(135deg, #1a1a1a 0%, #2a1a2a 25%, #0a0a0a 50%, #1a2a2a 75%, #2a2a2a 100%);
+    animation: nightclubPulse 8s ease-in-out infinite;
+}
+
+.sign-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 100px,
+            rgba(255, 0, 128, 0.01) 101px,
+            rgba(255, 0, 128, 0.01) 102px
+        ),
+        repeating-linear-gradient(
+            -45deg,
+            transparent,
+            transparent 100px,
+            rgba(0, 255, 255, 0.01) 101px,
+            rgba(0, 255, 255, 0.01) 102px
+        );
+    animation: geometricMove 20s linear infinite;
+    z-index: 1;
+}
+
+@keyframes nightclubPulse {
+    0%, 100% {
+        background: 
+            radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.15) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.15) 0%, transparent 50%),
+            radial-gradient(circle at 40% 40%, rgba(120, 219, 226, 0.1) 0%, transparent 50%),
+            linear-gradient(135deg, #1a1a1a 0%, #2a1a2a 25%, #0a0a0a 50%, #1a2a2a 75%, #2a2a2a 100%);
+    }
+    50% {
+        background: 
+            radial-gradient(circle at 60% 40%, rgba(120, 219, 226, 0.15) 0%, transparent 50%),
+            radial-gradient(circle at 40% 60%, rgba(147, 51, 234, 0.15) 0%, transparent 50%),
+            radial-gradient(circle at 80% 80%, rgba(255, 119, 198, 0.08) 0%, transparent 50%),
+            linear-gradient(135deg, #1a1a1a 0%, #1a2a2a 25%, #0a0a0a 50%, #2a1a2a 75%, #2a2a2a 100%);
+    }
+}
+
+@keyframes geometricMove {
+    0% { transform: translateX(0) translateY(0); }
+    25% { transform: translateX(10px) translateY(-5px); }
+    50% { transform: translateX(-5px) translateY(10px); }
+    75% { transform: translateX(-10px) translateY(-10px); }
+    100% { transform: translateX(0) translateY(0); }
+}
+
+.sign-background {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    transform: translateY(0px);
+    image-orientation: from-image;
+    animation: gentleFloat 4s ease-in-out infinite;
+}
+
+@keyframes gentleFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+}
+
+.text-overlay {
+    position: absolute;
+    width: 60%;
+    text-align: center;
+    z-index: 20;
+    top: 35%;
+    transform: translateY(-50%);
+    animation: gentleFloat 4s ease-in-out infinite;
+}
+
+.text-overlay * {
+    font-family: 'Bebas Neue', 'Anton', 'Righteous', Impact, 'Arial Black', sans-serif !important;
+}
+
+.main-text {
+    font-size: 4.8vw;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 0.8vh;
+    font-family: 'Bebas Neue', 'Anton', 'Righteous', Impact, 'Arial Black', sans-serif !important;
+    display: flex;
+    justify-content: center;
+    gap: 0.08em;
+    position: relative;
+}
+
+.main-text::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 75%;
+    height: 4px;
+    background: linear-gradient(to right, 
+        transparent 0%, 
+        rgba(150, 150, 150, 0.8) 10%, 
+        rgba(150, 150, 150, 0.8) 90%, 
+        transparent 100%
+    );
+    border-radius: 2px;
+    box-shadow: 0 2px 0 rgba(120, 120, 120, 0.6);
+}
+
+.letter {
+    display: inline-block;
+    transform-origin: center;
+    color: #000000;
+    font-family: inherit !important;
+    font-weight: 900 !important;
+    -webkit-text-stroke: 1px rgba(0, 0, 0, 0.2);
+    text-shadow: 
+        /* Subtle depth shadow */
+        1px 1px 0px rgba(0, 0, 0, 0.3),
+        2px 2px 1px rgba(0, 0, 0, 0.2),
+        /* Clean white glow */
+        0 0 2px rgba(255, 255, 255, 0.8),
+        0 0 4px rgba(255, 255, 255, 0.5),
+        0 0 8px rgba(255, 255, 255, 0.3);
+    animation: subtleGlow 3s ease-in-out infinite alternate;
+    transform-style: preserve-3d;
+}
+
+@keyframes subtleGlow {
+    0% {
+        text-shadow: 
+            1px 1px 0px rgba(0, 0, 0, 0.3),
+            2px 2px 1px rgba(0, 0, 0, 0.2),
+            0 0 2px rgba(255, 255, 255, 0.8),
+            0 0 4px rgba(255, 255, 255, 0.5),
+            0 0 8px rgba(255, 255, 255, 0.3);
+    }
+    100% {
+        text-shadow: 
+            1px 1px 0px rgba(0, 0, 0, 0.4),
+            2px 2px 1px rgba(0, 0, 0, 0.3),
+            0 0 3px rgba(255, 255, 255, 0.9),
+            0 0 6px rgba(255, 255, 255, 0.6),
+            0 0 10px rgba(255, 255, 255, 0.4);
+    }
+}
+
+.led-lights {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 25;
+    animation: gentleFloat 4s ease-in-out infinite;
+}
+
+.led-lights.left { 
+    left: 100px; /* Closer to sign but still clear */
+}
+
+.led-lights.right { 
+    right: 100px; /* Closer to sign but still clear */
+}
+
+.led {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    background: radial-gradient(circle, #fff 20%, #ff0040 40%, #660011 100%);
+    animation: ledFlash 2s ease-in-out infinite;
+}
+
+.led:nth-child(1) { animation-delay: 0s; }
+.led:nth-child(2) { animation-delay: 0.3s; }
+.led:nth-child(3) { animation-delay: 0.6s; }
+.led:nth-child(4) { animation-delay: 0.9s; }
+.led:nth-child(5) { animation-delay: 1.2s; }
+.led:nth-child(6) { animation-delay: 1.5s; }
+
+@keyframes ledFlash {
+    0%, 100% {
+        opacity: 0.4;
+        box-shadow: 
+            0 0 8px rgba(255, 255, 255, 0.2),
+            0 0 15px rgba(255, 0, 64, 0.4),
+            inset 0 3px 6px rgba(255, 255, 255, 0.2);
+    }
+    50% {
+        opacity: 1;
+        box-shadow: 
+            0 0 20px rgba(255, 255, 255, 0.8),
+            0 0 40px rgba(255, 0, 64, 0.8),
+            0 0 60px rgba(255, 0, 64, 0.4),
+            inset 0 3px 6px rgba(255, 255, 255, 0.4);
+    }
+}
+
+.nav-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 101;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.nav-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.qr-code-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 101;
+}
+
+.qr-code-placeholder {
+    width: 80px;
+    height: 80px;
+    background: white;
+    border: 2px solid #333;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+.qr-pattern {
+    width: 100%;
+    height: 100%;
+    background-image: 
+        /* Corner squares */
+        linear-gradient(45deg, #000 25%, transparent 25%),
+        linear-gradient(-45deg, #000 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #000 75%),
+        linear-gradient(-45deg, transparent 75%, #000 75%);
+    background-size: 8px 8px;
+    background-position: 0 0, 0 0, 0 0, 0 0;
+    opacity: 0.8;
+}
+
+.qr-text {
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 8px;
+    text-align: center;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.progress-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 1000;
+    border-top: 2px solid rgba(255, 0, 64, 0.3);
+}
+
+.progress-bar {
+    flex: 1;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    margin-right: 15px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 0, 64, 0.2);
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, 
+        #ff0080 0%, 
+        #ff0040 25%, 
+        #00ffff 50%, 
+        #0080ff 75%, 
+        #8000ff 100%
+    );
+    border-radius: 10px;
+    transition: width 0.1s ease-out;
+    width: 0%;
+}
+
+.time-left {
+    color: #00ffff;
+    font-weight: bold;
+    font-size: 16px;
+    min-width: 40px;
+    text-align: center;
+}
+
+
+/* Sparkler effects */
+.sparkler-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 100;
+    overflow: hidden;
+}
+
+.sparkler {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+.sparkler.pink { color: #ff0080; }
+.sparkler.cyan { color: #00ffff; }
+.sparkler.purple { color: #9333ea; }
+.sparkler.gold { color: #ffd700; }
+.sparkler.white { color: #ffffff; }
+
+@keyframes sparklerExplode {
+    0% {
+        transform: translate(0, 0) scale(0);
+        opacity: 1;
+    }
+    20% {
+        transform: translate(var(--dx), var(--dy)) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(calc(var(--dx) * 2), calc(var(--dy) * 2)) scale(0);
+        opacity: 0;
+    }
+}
+
+.sparkler.explode {
+    animation: sparklerExplode 3s ease-out forwards;
+}
+
+/* Confetti canvas styling */
+canvas {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    pointer-events: none !important;
+    z-index: 9999 !important;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .main-text {
+        font-size: 6vw;
+    }
+    .text-overlay {
+        width: 70%;
+    }
+    
+    .led-lights.left { 
+        left: 40px; /* Closer for mobile */
+    }
+    
+    .led-lights.right { 
+        right: 40px; /* Closer for mobile */
+    }
+    
+    .led {
+        width: 18px;
+        height: 18px;
+    }
+}

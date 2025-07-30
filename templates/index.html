@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}Submit Message - Wedding Display{% endblock %}
+
+{% block content %}
+<div class="submission-container">
+    <form class="submission-form" id="messageForm">
+        <h1 class="form-title">Add Message</h1>
+        
+        <div id="success-message" class="success-message" style="display: none;">
+            <div>✅ Message added to queue successfully!</div>
+            <div id="queue-info" style="margin-top: 10px; font-size: 0.9em;"></div>
+        </div>
+
+        <div class="input-group">
+            <label for="line1">Line 1 *</label>
+            <input type="text" id="line1" maxlength="14" required>
+            <div class="char-count">
+                <span id="line1-count">0</span>/14
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label for="line2">Line 2</label>
+            <input type="text" id="line2" maxlength="14">
+            <div class="char-count">
+                <span id="line2-count">0</span>/14
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label for="line3">Line 3</label>
+            <input type="text" id="line3" maxlength="14">
+            <div class="char-count">
+                <span id="line3-count">0</span>/14
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label for="line4">Line 4</label>
+            <input type="text" id="line4" maxlength="14">
+            <div class="char-count">
+                <span id="line4-count">0</span>/14
+            </div>
+        </div>
+
+        <button type="submit" class="submit-btn">Add to Queue</button>
+    </form>
+
+    <div class="nav-links">
+        <a href="/display" class="nav-link">View Display</a>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/submission.js') }}"></script>
+{% endblock %}
