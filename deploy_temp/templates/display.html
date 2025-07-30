@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}LED Display - Wedding Display{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/display.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="sign-container">
+    <!-- Sparkler container for celebrations -->
+    <div class="sparkler-container"></div>
+    
+    <img src="{{ url_for('static', filename='sign_background.png') }}" 
+         alt="LED Sign Background" 
+         class="sign-background">
+    
+    <div class="led-lights left">
+        <div class="led"></div>
+        <div class="led"></div>
+        <div class="led"></div>
+        <div class="led"></div>
+        <div class="led"></div>
+        <div class="led"></div>
+    </div>
+    
+    <div class="led-lights right">
+        <div class="led"></div>
+        <div class="led"></div>
+        <div class="led"></div>
+        <div class="led"></div>
+        <div class="led"></div>
+        <div class="led"></div>
+    </div>
+    
+    <div class="text-overlay">
+        <div class="main-text" id="line1">CONGRATS</div>
+        <div class="main-text" id="line2">DES AND SIM</div>
+        <div class="main-text" id="line3" style="display: none;"></div>
+        <div class="main-text" id="line4" style="display: none;"></div>
+    </div>
+
+    <div class="qr-code-container">
+        <div class="qr-code-placeholder">
+            <div class="qr-pattern"></div>
+        </div>
+        <div class="qr-text">Scan to Submit Message</div>
+    </div>
+    
+    <!-- Progress bar -->
+    <div class="progress-container" id="progress-container" style="display: none;">
+        <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+        </div>
+        <div class="time-left" id="time-left">25s</div>
+    </div>
+
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/display.js') }}"></script>
+{% endblock %}
