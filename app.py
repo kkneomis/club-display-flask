@@ -190,8 +190,14 @@ def poll_celebrations():
         'count': len(recent_triggers)
     })
 
-if __name__ == '__main__':
+def run():
     init_db()
+    import os
+    port = int(os.environ.get('PORT', 8000))
+    app.run(debug=False, host='0.0.0.0', port=port)
+
+if __name__ == '__main__':
+    run()
     import os
     port = int(os.environ.get('PORT', 8000))
     app.run(debug=False, host='0.0.0.0', port=port)

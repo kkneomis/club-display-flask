@@ -1,7 +1,7 @@
 """
 WSGI entry point for Azure App Service
 """
-from app import app
+import app
 
 if __name__ == "__main__":
     app.run()
