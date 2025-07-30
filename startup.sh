@@ -1,3 +1,3 @@
 #!/bin/bash
-# Try gunicorn first, fallback to direct python
-gunicorn --bind=0.0.0.0:8000 --timeout 600 app:app || python app.py
+# Run the application directly with Python
+python app.py
